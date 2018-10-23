@@ -2,44 +2,52 @@ let redButton = document.querySelector(".RedButton");
 let blueButton = document.querySelector(".BlueButton");
 let greenButton = document.querySelector(".GreenButton");
 let yellowButton = document.querySelector(".YellowButton");
-
+redButton.value = 1;
+blueButton.value = 2;
 let startButton = document.querySelector(".StartButton");
 let yourTurn = document.querySelector(".YourTurn");
 let score = document.querySelector(".Score");
+let resetButton = document.querySelector(".Reset");
 
 let counter = 0;
 
+resetButton.addEventListener("click", function() {
+  counter = 0;
+  yourTurn.value = "Start Over, click start";
+  score.value = "Score: " + 0;
+});
+
 startButton.addEventListener("click", function() {
+  hideRedButton();
+  showRedButton();
+  for (var i = 900; i < 2300; i += 900) {
+    setTimeout("hideRedButton()", i);
+    setTimeout("showRedButton()", i + 450);
+  }
+
   yourTurn.value = "Your Turn";
   counter++;
 });
 
-// redButton.addEventListener("click", function() {
-//   score.value = "Score: " + counter;
-// });
+redButton.addEventListener("click", function() {
+  score.value = "Score: " + counter;
+  yourTurn.value = "Level 1 passed";
+});
 
-// var colors = ["red", "orange", "yellow", "green", "blue", "purple"];
-// var currentIndex = 0;
+blueButton.addEventListener("click", function() {});
 
-// setInterval(function() {
-//   document.body.style.cssText = "background-color: " + colors[currentIndex];
-//   currentIndex++;
-//   if (currentIndex == undefined || currentIndex >= colors.length) {
-//     currentIndex = 0;
-//   }
-// }, 1000);
-
-function hide() {
-  if (document.querySelector)
-    document.querySelector(".RedButton").style.visibility = "hidden";
+function hideRedButton() {
+  redButton.style.visibility = "hidden";
 }
 
-function show() {
-  if (document.querySelector)
-    document.querySelector(".RedButton").style.visibility = "visible";
+function showRedButton() {
+  redButton.style.visibility = "visible";
 }
 
-for (var i = 900; i < 2300; i += 900) {
-  setTimeout("hide()", i);
-  setTimeout("show()", i + 450);
+function hideBlueButton() {
+  blueButton.style.visibility = "hidden";
+}
+
+function showBlueButton() {
+  blueButton.style.visibility = "visible";
 }

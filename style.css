@@ -31,8 +31,10 @@ body {
   border: 1px solid black;
   background: lightgreen;
   width: 90px;
+  length: 20px;
   align-self: center;
   border-radius: 5px;
+  text-align: center;
 }
 .box {
   display: flex;
