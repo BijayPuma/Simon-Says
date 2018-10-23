@@ -28,3 +28,18 @@ startButton.addEventListener("click", function() {
 //     currentIndex = 0;
 //   }
 // }, 1000);
+
+function hide() {
+  if (document.querySelector)
+    document.querySelector(".RedButton").style.visibility = "hidden";
+}
+
+function show() {
+  if (document.querySelector)
+    document.querySelector(".RedButton").style.visibility = "visible";
+}
+
+for (var i = 900; i < 2300; i += 900) {
+  setTimeout("hide()", i);
+  setTimeout("show()", i + 450);
+}
