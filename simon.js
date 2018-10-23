@@ -13,6 +13,7 @@ let counter = 0;
 function whichButton() {
   console.log(event.srcElement.className);
 }
+
 // startButton.addEventListener("click", function() {
 //   hideRedButton();
 //   showRedButton();
@@ -47,15 +48,15 @@ startButton.addEventListener("click", function() {
     setTimeout("showBlueButton()", i + 800);
   }
 
-  yourTurn.value = "Your Turn";
+  setTimeout("yourTurnTimer()", 3000);
   counter++;
 });
 
-resetButton.addEventListener("click", function() {
-  counter = 0;
-  yourTurn.value = "Start Over, click start";
-  score.value = "Score: " + 0;
-});
+// resetButton.addEventListener("click", function() {
+//   counter = 0;
+//   yourTurn.value = "Start Over, click start";
+//   score.value = "Score: " + 0;
+// });
 
 function hideRedButton() {
   redButton.style.visibility = "hidden";
@@ -71,4 +72,8 @@ function hideBlueButton() {
 
 function showBlueButton() {
   blueButton.style.visibility = "visible";
+}
+
+function yourTurnTimer() {
+  return (yourTurn.value = "Your Turn");
 }
