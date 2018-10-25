@@ -344,7 +344,6 @@ function computerSequence(colors) {
 userClicks = "";
 function userClicked(userClick) {
   userClicks += userClick;
-  console.log(userClicks);
   if (combineColors === userClicks) {
     win();
   } else {
@@ -366,8 +365,6 @@ function lose() {
   clickButtonCounter = 0;
   counter = 0;
   yourTurn.value = "Try Again";
-
-  // alert("Failed, click 'start' to start again! 'Reset' to quit.");
 }
 
 resetButton.addEventListener("click", function() {
