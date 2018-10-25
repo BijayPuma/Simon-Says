@@ -2,7 +2,6 @@ let redButton = document.querySelector(".RedButton");
 let blueButton = document.querySelector(".BlueButton");
 let greenButton = document.querySelector(".GreenButton");
 let yellowButton = document.querySelector(".YellowButton");
-
 let startButton = document.querySelector(".StartButton");
 let yourTurn = document.querySelector(".YourTurn");
 let score = document.querySelector(".Score");
@@ -103,6 +102,7 @@ yellowButton.addEventListener("click", function() {
 */
 
 //LEVEL2
+//startButton.addEventListener("click", levelTwo);
 startButton.addEventListener("click", levelTwo);
 
 let counter = 0;
@@ -112,7 +112,6 @@ computerChoice = [];
 function levelTwo() {
   computerSequence();
 }
-
 function computerSequence(colors) {
   //Level one random color
   for (let i = 0; i < 3; i++) {
@@ -335,6 +334,7 @@ function computerSequence(colors) {
     counter++;
   }
 }
+
 /*
 *******
 */
@@ -344,6 +344,7 @@ function computerSequence(colors) {
 userClicks = "";
 function userClicked(userClick) {
   userClicks += userClick;
+  console.log(userClicks);
   if (combineColors === userClicks) {
     win();
   } else {
@@ -356,7 +357,7 @@ function userClicked(userClick) {
 */
 function win() {
   score.value = "Score: " + "2";
-  yourTurn.value = "Congrats, You win the Game";
+  yourTurn.value = "Level passed";
   alert("PASSED! click 'start' to go next level");
 }
 
@@ -364,7 +365,9 @@ function lose() {
   score.value = "Score: " + 0;
   clickButtonCounter = 0;
   counter = 0;
-  yourTurn.value = "Fail, Try Again";
+  yourTurn.value = "Try Again!";
+
+  //alert("Failed, click 'start' to start again! 'Reset' to quit.");
 }
 
 resetButton.addEventListener("click", function() {

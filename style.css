@@ -12,25 +12,12 @@ body {
   display: flex;
   flex-direction: column;
 }
-.LevelOne {
+.StartButton {
   border: 1px solid black;
   background: lightgreen;
   width: 90px;
   align-self: flex-start;
   border-radius: 10px;
-  margin: 10px;
-}
-.LevelTwo {
-  border: 1px solid black;
-  background: lightgreen;
-  width: 90px;
-  align-self: flex-start;
-  border-radius: 10px;
-  margin: 10px;
-}
-.level {
-  display: flex;
-  flex-direction: column;
 }
 
 .Score {
