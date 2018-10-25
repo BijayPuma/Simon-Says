@@ -357,7 +357,7 @@ function userClicked(userClick) {
 */
 function win() {
   score.value = "Score: " + "2";
-  yourTurn.value = "congratulation, You win the Game";
+  yourTurn.value = "Congrats, You win the Game";
   alert("PASSED! click 'start' to go next level");
 }
 
@@ -365,6 +365,8 @@ function lose() {
   score.value = "Score: " + 0;
   clickButtonCounter = 0;
   counter = 0;
+  yourTurn.value = "Try Again";
+
   // alert("Failed, click 'start' to start again! 'Reset' to quit.");
 }
 
