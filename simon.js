@@ -35,51 +35,51 @@ startButton.addEventListener("click", levelOne);
 userClick = [];
 computerChoice = [];
 
-function levelOne() {
-  computerSequence();
-  if (computerChoice[0] === "red") {
-    hideRedButton();
-    showRedButton();
-    for (var i = 900; i < 1500; i += 900) {
-      setTimeout("hideRedButton()", i);
-      setTimeout("showRedButton()", i + 450);
-    }
+// function levelOne() {
+//   computerSequence();
+//   if (computerChoice[0] === "red") {
+//     hideRedButton();
+//     showRedButton();
+//     for (var i = 900; i < 1500; i += 900) {
+//       setTimeout("hideRedButton()", i);
+//       setTimeout("showRedButton()", i + 450);
+//     }
 
-    setTimeout("yourTurnTimer()", 1500);
-    counter++;
-  } else if (computerChoice[0] === "blue") {
-    hideBlueButton();
-    showBlueButton();
-    for (var i = 900; i < 1500; i += 900) {
-      setTimeout("hideBlueButton()", i);
-      setTimeout("showBlueButton()", i + 450);
-    }
+//     setTimeout("yourTurnTimer()", 1500);
+//     counter++;
+//   } else if (computerChoice[0] === "blue") {
+//     hideBlueButton();
+//     showBlueButton();
+//     for (var i = 900; i < 1500; i += 900) {
+//       setTimeout("hideBlueButton()", i);
+//       setTimeout("showBlueButton()", i + 450);
+//     }
 
-    setTimeout("yourTurnTimer()", 1500);
-    counter++;
-  } else if (computerChoice[0] === "green") {
-    hideGreenButton();
-    showGreenButton();
-    for (var i = 900; i < 1500; i += 900) {
-      setTimeout("hideGreenButton()", i);
-      setTimeout("showGreenButton()", i + 450);
-    }
+//     setTimeout("yourTurnTimer()", 1500);
+//     counter++;
+//   } else if (computerChoice[0] === "green") {
+//     hideGreenButton();
+//     showGreenButton();
+//     for (var i = 900; i < 1500; i += 900) {
+//       setTimeout("hideGreenButton()", i);
+//       setTimeout("showGreenButton()", i + 450);
+//     }
 
-    setTimeout("yourTurnTimer()", 1500);
-    counter++;
-  } else if (computerChoice[0] === "yellow") {
-    hideYellowButton();
-    showYellowButton();
-    for (var i = 900; i < 1500; i += 900) {
-      setTimeout("hideYellowButton()", i);
-      setTimeout("showYellowButton()", i + 450);
-    }
+//     setTimeout("yourTurnTimer()", 1500);
+//     counter++;
+//   } else if (computerChoice[0] === "yellow") {
+//     hideYellowButton();
+//     showYellowButton();
+//     for (var i = 900; i < 1500; i += 900) {
+//       setTimeout("hideYellowButton()", i);
+//       setTimeout("showYellowButton()", i + 450);
+//     }
 
-    setTimeout("yourTurnTimer()", 1500);
-    counter++;
-  }
-  computerChoice = [];
-}
+//     setTimeout("yourTurnTimer()", 1500);
+//     counter++;
+//   }
+//   computerChoice = [];
+// }
 
 function computerSequence() {
   colors = ["red", "blue", "green", "yellow"];
@@ -87,6 +87,9 @@ function computerSequence() {
   computerChoice.push(colors[randomNum]);
 }
 
+function startSequence() {
+  computerSequence;
+}
 //let computerChoice = computerSequence();
 
 function userClicked(userClick) {
