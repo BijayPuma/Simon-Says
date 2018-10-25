@@ -364,7 +364,7 @@ function lose() {
   score.value = "Score: " + 0;
   clickButtonCounter = 0;
   counter = 0;
-  yourTurn.value = "Try Again";
+  yourTurn.value = "Fail, Try Again";
 }
 
 resetButton.addEventListener("click", function() {
