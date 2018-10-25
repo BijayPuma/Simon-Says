@@ -8,9 +8,6 @@ let yourTurn = document.querySelector(".YourTurn");
 let score = document.querySelector(".Score");
 let resetButton = document.querySelector(".Reset");
 
-let counter = 0;
-let clickButtonCounter = 0;
-
 redButton.addEventListener("click", function() {
   userClicked("red");
 });
@@ -25,76 +22,71 @@ yellowButton.addEventListener("click", function() {
 });
 
 startButton.addEventListener("click", levelOne);
-/*
 
-1) add equal sign
-2) change button and it shows and hides right button
-3)git rid off else at the end of levelone if statement
-
-*/
+let counter = 0;
 userClick = [];
 computerChoice = [];
 
-// function levelOne() {
-//   computerSequence();
-//   if (computerChoice[0] === "red") {
-//     hideRedButton();
-//     showRedButton();
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 450);
-//     }
-
-//     setTimeout("yourTurnTimer()", 1500);
-//     counter++;
-//   } else if (computerChoice[0] === "blue") {
-//     hideBlueButton();
-//     showBlueButton();
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 450);
-//     }
-
-//     setTimeout("yourTurnTimer()", 1500);
-//     counter++;
-//   } else if (computerChoice[0] === "green") {
-//     hideGreenButton();
-//     showGreenButton();
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-
-//     setTimeout("yourTurnTimer()", 1500);
-//     counter++;
-//   } else if (computerChoice[0] === "yellow") {
-//     hideYellowButton();
-//     showYellowButton();
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 450);
-//     }
-
-//     setTimeout("yourTurnTimer()", 1500);
-//     counter++;
-//   }
-//   computerChoice = [];
-// }
+function levelOne() {
+  console.log("started level one by clicking start button");
+  computerSequence();
+}
 
 function computerSequence() {
+  console.log("started compseq after level one ");
+
   colors = ["red", "blue", "green", "yellow"];
   let randomNum = Math.floor(Math.random() * 4);
   computerChoice.push(colors[randomNum]);
-}
+  for (i = 0; i < computerChoice.length; i++) {
+    if (computerChoice[0] === "red") {
+      hideRedButton();
+      showRedButton();
+      for (var i = 900; i < 1500; i += 900) {
+        setTimeout("hideRedButton()", i);
+        setTimeout("showRedButton()", i + 450);
+      }
 
-function startSequence() {
-  computerSequence;
-}
-//let computerChoice = computerSequence();
+      setTimeout("yourTurnTimer()", 1500);
+      counter++;
+    } else if (computerChoice[0] === "blue") {
+      hideBlueButton();
+      showBlueButton();
+      for (var i = 900; i < 1500; i += 900) {
+        setTimeout("hideBlueButton()", i);
+        setTimeout("showBlueButton()", i + 450);
+      }
 
+      setTimeout("yourTurnTimer()", 1500);
+      counter++;
+    } else if (computerChoice[0] === "green") {
+      hideGreenButton();
+      showGreenButton();
+      for (var i = 900; i < 1500; i += 900) {
+        setTimeout("hideGreenButton()", i);
+        setTimeout("showGreenButton()", i + 450);
+      }
+
+      setTimeout("yourTurnTimer()", 1500);
+      counter++;
+    } else if (computerChoice[0] === "yellow") {
+      hideYellowButton();
+      showYellowButton();
+      for (var i = 900; i < 1500; i += 900) {
+        setTimeout("hideYellowButton()", i);
+        setTimeout("showYellowButton()", i + 450);
+      }
+      setTimeout("yourTurnTimer()", 1500);
+      counter++;
+    }
+  }
+  userClicked;
+  console.log(computerChoice);
+}
 function userClicked(userClick) {
-  console.log("computer choice " + computerChoice);
-  console.log("user choice " + userClick);
+  console.log("started userclicked after comp sequence ");
+  console.log("User choice: " + userClick);
+  console.log("computer choice inside userClicked: " + computerChoice);
   if (computerChoice[0] === userClick) {
     win();
   } else {
@@ -116,13 +108,13 @@ function lose() {
   alert("Failed, click 'start' to start again! 'Reset' to quit.");
 }
 
-// switch()
-
 resetButton.addEventListener("click", function() {
   counter = 0;
   yourTurn.value = "Start Over, click start";
   score.value = "Score: " + 0;
   clickButtonCounter = 0;
+  userClick = [];
+  computerChoice = [];
 });
 
 //LEVEL2
