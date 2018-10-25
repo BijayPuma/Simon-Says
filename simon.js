@@ -414,7 +414,6 @@ function win() {
 }
 
 function lose() {
-  yourTurn.value = "Failed, click start";
   score.value = "Score: " + 0;
   clickButtonCounter = 0;
   counter = 0;
