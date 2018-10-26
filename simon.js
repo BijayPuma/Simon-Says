@@ -10,19 +10,15 @@ let resetButton = document.querySelector(".Reset");
 
 redButton.addEventListener("click", function() {
   userClicked("red");
-  // userClicked1("red");
 });
 blueButton.addEventListener("click", function() {
   userClicked("blue");
-  // userClicked1("blue");
 });
 greenButton.addEventListener("click", function() {
   userClicked("green");
-  // userClicked1("green");
 });
 yellowButton.addEventListener("click", function() {
   userClicked("yellow");
-  // userClicked1("yellow");
 });
 
 /*
@@ -36,7 +32,7 @@ if (levelOneBoolean) {
 }
 
 firstLevel.addEventListener("click", levelOne);
-
+counter = 0;
 function levelOne() {
   userClick = [];
   computerChoice = [];
@@ -369,7 +365,7 @@ function computerSequence2(colors) {
 *******
 */
 function win() {
-  score.value = "Score: " + "2";
+  score.value = "Score: " + 1;
   yourTurn.value = "Level passed";
   alert("PASSED! Good job!");
 }
@@ -390,6 +386,9 @@ resetButton.addEventListener("click", function() {
   clickButtonCounter = 0;
   userClick = [];
   computerChoice = [];
+  levelOneBoolean = true;
+  levelOne();
+  // userClicked();
 });
 
 function hideRedButton() {
