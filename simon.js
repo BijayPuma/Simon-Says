@@ -371,7 +371,7 @@ function computerSequence2(colors) {
 function win() {
   score.value = "Score: " + "2";
   yourTurn.value = "Level passed";
-  // alert("PASSED! click 'start' to go next level");
+  alert("PASSED! Good job!");
 }
 
 function lose() {
@@ -380,7 +380,7 @@ function lose() {
   counter = 0;
   yourTurn.value = "Try Again!";
 
-  //alert("Failed, click 'start' to start again! 'Reset' to quit.");
+  alert("Failed, click 'reset' to start again!");
 }
 
 resetButton.addEventListener("click", function() {
