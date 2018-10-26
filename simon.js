@@ -24,6 +24,7 @@ yellowButton.addEventListener("click", function() {
 /*
 *******
 */
+alert("Click 'Ok' to start");
 let levelOneBoolean = true;
 if (levelOneBoolean) {
   levelOne();
