@@ -29,3 +29,6 @@ Technologies Used:
 ☛CSS
 
 ☛JAVASCRIPT
+
+Demo at:
+https://bijaypuma.github.io/Simon-Says/
