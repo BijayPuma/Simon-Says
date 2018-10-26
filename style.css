@@ -19,7 +19,7 @@ body {
   align-self: flex-start;
   border-radius: 10px;
 }
-.levelOne {
+.LevelOne {
   border: 1px solid black;
   background: lightgreen;
   width: 90px;

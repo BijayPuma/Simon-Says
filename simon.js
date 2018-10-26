@@ -10,21 +10,26 @@ let resetButton = document.querySelector(".Reset");
 
 redButton.addEventListener("click", function() {
   userClicked("red");
+  // userClicked1("red");
 });
 blueButton.addEventListener("click", function() {
   userClicked("blue");
+  // userClicked1("blue");
 });
 greenButton.addEventListener("click", function() {
   userClicked("green");
+  // userClicked1("green");
 });
 yellowButton.addEventListener("click", function() {
   userClicked("yellow");
+  // userClicked1("yellow");
 });
 
 /*
 *******
 */
-alert("Click 'start button' to start");
+
+alert("Click 'level 1 button' to start");
 firstLevel.addEventListener("click", levelOne);
 
 let counter = 0;
@@ -41,6 +46,9 @@ function computerSequence() {
   colors = ["red", "blue", "green", "yellow"];
   let randomNum = Math.floor(Math.random() * 4);
   computerChoice.push(colors[randomNum]);
+  colorOne = computerChoice[0];
+
+  console.log("Random one" + computerChoice[0]);
   for (i = 0; i < computerChoice.length; i++) {
     if (computerChoice[0] === "red") {
       hideRedButton();
@@ -87,9 +95,6 @@ function computerSequence() {
   console.log(computerChoice);
 }
 function userClicked(userClick) {
-  console.log("started userclicked after comp sequence ");
-  console.log("User choice: " + userClick);
-  console.log("computer choice inside userClicked: " + computerChoice);
   if (computerChoice[0] === userClick) {
     win();
   } else {
@@ -101,256 +106,254 @@ function userClicked(userClick) {
 *******
 */
 
-//LEVEL2
-//startButton.addEventListener("click", levelTwo);
-// startButton.addEventListener("click", levelTwo);
+// // //LEVEL2
+startButton.addEventListener("click", levelTwo);
+counter = 0;
+userClick = [];
+computerChoice = [];
 
-// let counter = 0;
-// userClick = [];
-// computerChoice = [];
+function levelTwo() {
+  computerSequence2();
+}
+function computerSequence2(colors) {
+  //Level one random color
+  for (let i = 0; i < 3; i++) {
+    colors = ["red", "blue", "green", "yellow"];
+    let randomNum = Math.floor(Math.random() * 4);
+    computerChoice.push(colors[randomNum]);
+    colorOne = computerChoice[0];
+  }
 
-// function levelTwo() {
-//   computerSequence();
-// }
-// function computerSequence(colors) {
-//   //Level one random color
-//   for (let i = 0; i < 3; i++) {
-//     colors = ["red", "blue", "green", "yellow"];
-//     let randomNum = Math.floor(Math.random() * 4);
-//     computerChoice.push(colors[randomNum]);
-//     colorOne = computerChoice[0];
-//   }
+  //Randamize array
+  colors = ["red", "blue", "green", "yellow"];
+  for (let i = colors.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [colors[i], colors[j]] = [colors[j], colors[i]];
+  }
+  for (let i = 0; i < 2; i++) {
+    hey = [];
+    hey.push(colors[i]);
+  }
 
-//   //Randamize array
-//   colors = ["red", "blue", "green", "yellow"];
-//   for (let i = colors.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [colors[i], colors[j]] = [colors[j], colors[i]];
-//   }
-//   for (let i = 0; i < 2; i++) {
-//     hey = [];
-//     hey.push(colors[i]);
-//   }
+  combineColors = colorOne + colors[1];
 
-//   combineColors = colorOne + colors[1];
+  console.log("RandomFirstSecond " + combineColors);
+  /*
+*******
+*/
+  //Red
+  if (combineColors === "redblue") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "redgreen") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "redyellow") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "redred") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 450);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  }
 
-//   console.log("RandomFirstSecond " + combineColors);
-//   /*
-// *******
-// */
-//   //Red
-//   if (combineColors === "redblue") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "redgreen") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "redyellow") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "redred") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 450);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   }
+  /*
+*******Blue
+*/
+  if (combineColors === "blueblue") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "bluered") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "blueyellow") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "bluegreen") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 450);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  }
 
-//   /*
-// *******Blue
-// */
-//   if (combineColors === "blueblue") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "bluered") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "blueyellow") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "bluegreen") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   }
+  /*
+******* Green
+*/
 
-//   /*
-// ******* Green
-// */
+  if (combineColors === "greengreen") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "greenred") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "greenyellow") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "greenblue") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 450);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  }
 
-//   if (combineColors === "greengreen") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "greenred") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "greenyellow") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "greenblue") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 450);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   }
+  /*
+*******Yellow
+*/
 
-//   /*
-// *******Yellow
-// */
+  if (combineColors === "yellowyellow") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "yellowred") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideRedButton()", i);
+      setTimeout("showRedButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "yellowblue") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideBlueButton()", i);
+      setTimeout("showBlueButton()", i + 800);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  } else if (combineColors === "yellowgreen") {
+    for (var i = 900; i < 1500; i += 900) {
+      setTimeout("hideYellowButton()", i);
+      setTimeout("showYellowButton()", i + 450);
+    }
+    for (var i = 1900; i < 3000; i += 1300) {
+      setTimeout("hideGreenButton()", i);
+      setTimeout("showGreenButton()", i + 450);
+    }
+    setTimeout("yourTurnTimer()", 3000);
+    counter++;
+  }
+}
 
-//   if (combineColors === "yellowyellow") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "yellowred") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideRedButton()", i);
-//       setTimeout("showRedButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "yellowblue") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideBlueButton()", i);
-//       setTimeout("showBlueButton()", i + 800);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   } else if (combineColors === "yellowgreen") {
-//     for (var i = 900; i < 1500; i += 900) {
-//       setTimeout("hideYellowButton()", i);
-//       setTimeout("showYellowButton()", i + 450);
-//     }
-//     for (var i = 1900; i < 3000; i += 1300) {
-//       setTimeout("hideGreenButton()", i);
-//       setTimeout("showGreenButton()", i + 450);
-//     }
-//     setTimeout("yourTurnTimer()", 3000);
-//     counter++;
-//   }
-// }
+/*
+*******
+*/
 
-// /*
-// *******
-// */
+// userClicked;
 
-// // userClicked;
-
-// userClicks = "";
-// function userClicked(userClick) {
-//   userClicks += userClick;
-//   console.log(userClicks);
-//   if (combineColors === userClicks) {
-//     win();
-//   } else {
-//     lose();
-//   }
-// }
+let userClicks = "";
+function userClicked1(userClick1) {
+  userClicks += userClick1;
+  console.log(userClicks);
+  if (combineColors === userClicks) {
+    win();
+  } else {
+    lose();
+  }
+}
 
 /*
 *******
@@ -358,7 +361,7 @@ function userClicked(userClick) {
 function win() {
   score.value = "Score: " + "2";
   yourTurn.value = "Level passed";
-  alert("PASSED! click 'start' to go next level");
+  // alert("PASSED! click 'start' to go next level");
 }
 
 function lose() {
