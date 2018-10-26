@@ -19,6 +19,13 @@ body {
   align-self: flex-start;
   border-radius: 10px;
 }
+.levelOne {
+  border: 1px solid black;
+  background: lightgreen;
+  width: 90px;
+  align-self: flex-start;
+  border-radius: 10px;
+}
 
 .Score {
   border: 1px solid black;
