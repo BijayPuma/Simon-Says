@@ -32,56 +32,100 @@ function levelOne() {
   computerSequence();
 }
 
+// IFEE FUNCTIONS CAN KEEP YOUR VARIABLES OUT OF GLOBAL SCOPE
+// https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+// (() => {
+
+// })()
+
+// (function() {
+
+// })()
+
+function hide(button) {
+  hide.button.style.visibility = "hidden"
+}
+function show(button) {
+  show.button.style.visibility = "visible"
+}
+function hideAndShow(color) {
+  console.log('inside hide and show')
+  //selecting the button with the buttons color from the dom
+  let button = document.querySelector('.' + color)
+
+  // button.style.visibility = "hidden";
+  // button.style.visibility = "visible";
+  hide.button = button
+  show.button = button
+  for (var i = 900; i < 1500; i += 900) {
+    setTimeout(hide, i);
+    setTimeout(show, i + 450);
+  }
+  setTimeout(yourTurnTimer, 1500);
+  // counter++;
+}
+
 function computerSequence() {
   console.log("started compseq after level one ");
 
   colors = ["red", "blue", "green", "yellow"];
-  let randomNum = Math.floor(Math.random() * 4);
-  computerChoice.push(colors[randomNum]);
+  let randomColor = Math.floor(Math.random() * 4);
+  computerChoice.push(colors[randomColor]);
+  
   for (i = 0; i < computerChoice.length; i++) {
-    if (computerChoice[0] === "red") {
-      hideRedButton();
-      showRedButton();
-      for (var i = 900; i < 1500; i += 900) {
-        setTimeout("hideRedButton()", i);
-        setTimeout("showRedButton()", i + 450);
-      }
+   
+    // if (computerChoice[0] === "red") {
+    //   hideRedButton();
+    //   showRedButton();
+    //   for (var i = 900; i < 1500; i += 900) {
+    //     setTimeout("hideRedButton()", i);
+    //     setTimeout("showRedButton()", i + 450);
+    //   }
 
-      setTimeout("yourTurnTimer()", 1500);
-      counter++;
-    } else if (computerChoice[0] === "blue") {
-      hideBlueButton();
-      showBlueButton();
-      for (var i = 900; i < 1500; i += 900) {
-        setTimeout("hideBlueButton()", i);
-        setTimeout("showBlueButton()", i + 450);
-      }
+    //   setTimeout("yourTurnTimer()", 1500);
+    //   // counter++;
+    // } else if (computerChoice[0] === "blue") {
+    //   hideBlueButton();
+    //   showBlueButton();
+    //   for (var i = 900; i < 1500; i += 900) {
+    //     setTimeout("hideBlueButton()", i);
+    //     setTimeout("showBlueButton()", i + 450);
+    //   }
 
-      setTimeout("yourTurnTimer()", 1500);
-      counter++;
-    } else if (computerChoice[0] === "green") {
-      hideGreenButton();
-      showGreenButton();
-      for (var i = 900; i < 1500; i += 900) {
-        setTimeout("hideGreenButton()", i);
-        setTimeout("showGreenButton()", i + 450);
-      }
+    //   setTimeout("yourTurnTimer()", 1500);
+    //   // counter++;
+    // } else if (computerChoice[0] === "green") {
+      //you don't need these two lines at all
+      // hideGreenButton();
+      // showGreenButton();
 
-      setTimeout("yourTurnTimer()", 1500);
-      counter++;
-    } else if (computerChoice[0] === "yellow") {
-      hideYellowButton();
-      showYellowButton();
-      for (var i = 900; i < 1500; i += 900) {
-        setTimeout("hideYellowButton()", i);
-        setTimeout("showYellowButton()", i + 450);
-      }
-      setTimeout("yourTurnTimer()", 1500);
-      counter++;
-    }
+      hideAndShow(computerChoice[computerChoice.length - 1])
+
+
+      // for (var i = 900; i < 1500; i += 900) {
+      //   setTimeout(hideGreenButton, i);
+      //   setTimeout(showGreenButton, i + 450);
+      // }
+      // its not really a good practice to put your code in as a string,
+      //you were invoking in the argument which is why it wasn't working,
+      //you pass the function as a reference
+      // https://stackoverflow.com/questions/34928853/running-string-as-function-in-javascript-settimeout
+
+      // setTimeout("yourTurnTimer()", 1500);
+      // counter++;
+    // } else if (computerChoice[0] === "yellow") {
+    //   hideYellowButton();
+    //   showYellowButton();
+    //   for (var i = 900; i < 1500; i += 900) {
+    //     setTimeout(hideYellowButton, i);
+    //     setTimeout("showYellowButton()", i + 450);
+    //   }
+    //   setTimeout("yourTurnTimer()", 1500);
+    //   counter++;
+    // }
   }
-  userClicked;
-  console.log(computerChoice);
+  // userClicked;
+  // console.log(computerChoice);
 }
 function userClicked(userClick) {
   console.log("started userclicked after comp sequence ");
@@ -211,7 +255,8 @@ resetButton.addEventListener("click", function() {
 //   counter++;
 // });
 
-function hideRedButton() {
+function hideRedButton(evt) {
+  console.log('redbutton')
   redButton.style.visibility = "hidden";
 }
 
@@ -227,11 +272,13 @@ function showBlueButton() {
   blueButton.style.visibility = "visible";
 }
 
-function hideGreenButton() {
+function hideGreenButton(evt) {
+  console.log('greenbutton')
   greenButton.style.visibility = "hidden";
 }
 
-function showGreenButton() {
+function showGreenButton(evt) {
+  console.log('greenbutton')
   greenButton.style.visibility = "visible";
 }
 
